@@ -33,7 +33,8 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll(
   '.about-content, .about-image, .step-card, .menu-item, ' +
   '.cooks-content, .cooks-images, .blog-card, .privacy-card, ' +
-  '.contact-inner, .hero-materials, .hero-stats, .hero-combine'
+  '.contact-inner, .contact-info, .contact-form-wrap, ' +
+  '.hero-materials, .hero-stats, .hero-combine'
 ).forEach(el => {
   el.classList.add('fade-in');
   observer.observe(el);
