@@ -72,15 +72,14 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
   gap: 8px;
 }
 .logo-img {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 .footer-logo-img {
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
-  vertical-align: middle;
   margin-right: 8px;
 }
 .nav-links { display: flex; gap: 32px; }
@@ -734,6 +733,8 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
   color: #fff;
   letter-spacing: 2px;
   margin-bottom: 16px;
+  display: flex;
+  align-items: center;
 }
 .footer-col p { font-size: 0.9rem; line-height: 1.7; }
 .footer-col h4 {
