@@ -12,7 +12,7 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#" class="logo">PIKISHA</a>
+      <a href="#" class="logo"><img src="logo.png" alt="Pikisha" class="logo-img">PIKISHA</a>
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#how-it-works">How It Works</a>
@@ -273,8 +273,70 @@
     </div>
   </section>
 
-  <!-- Contact / CTA -->
-  <section class="contact" id="contact">
+  <!-- Contact Form -->
+  <section class="contact-form-section" id="contact">
+    <div class="section-grid">
+      <div class="contact-info">
+        <p class="section-tag">GET IN TOUCH</p>
+        <h2>We'd love to<br><span class="accent">hear from you</span></h2>
+        <p class="about-text">Have a question, feedback, or want to become a cook on Pikisha? Drop us a message and we'll get back to you within 24 hours.</p>
+        <div class="contact-details">
+          <div class="contact-detail">
+            <span class="contact-icon">&#9993;</span>
+            <div>
+              <strong>Email</strong>
+              <p>hello@pikisha.com</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-icon">&#9742;</span>
+            <div>
+              <strong>Phone</strong>
+              <p>+254 700 000 000</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-icon">&#9873;</span>
+            <div>
+              <strong>Location</strong>
+              <p>Nairobi, Kenya</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="contactName">Your Name</label>
+            <input type="text" id="contactName" name="name" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Your Email</label>
+            <input type="email" id="contactEmail" name="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="contactSubject">Subject</label>
+            <select id="contactSubject" name="subject">
+              <option value="general">General Inquiry</option>
+              <option value="support">Order Support</option>
+              <option value="cook">Become a Cook</option>
+              <option value="feedback">Feedback</option>
+              <option value="partnership">Partnership</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" name="message" rows="5" placeholder="Tell us what's on your mind..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
+          <p class="form-status" id="formStatus"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download CTA -->
+  <section class="download-cta">
     <div class="contact-inner">
       <h2>Ready to taste <span class="accent">home?</span></h2>
       <p>Download the Pikisha app and order your first meal today.</p>
@@ -301,7 +363,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-col">
-        <h3 class="footer-logo">PIKISHA</h3>
+        <h3 class="footer-logo"><img src="logo.png" alt="Pikisha" class="footer-logo-img">PIKISHA</h3>
         <p>Authentic home-cooked meals delivered to your doorstep. Connecting communities through food.</p>
       </div>
       <div class="footer-col">

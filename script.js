@@ -64,6 +64,49 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Contact form submission
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+const submitBtn = document.getElementById('submitBtn');
+
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  formStatus.textContent = '';
+  formStatus.className = 'form-status';
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  const data = {
+    name: document.getElementById('contactName').value.trim(),
+    email: document.getElementById('contactEmail').value.trim(),
+    subject: document.getElementById('contactSubject').value,
+    message: document.getElementById('contactMessage').value.trim(),
+  };
+
+  try {
+    const res = await fetch('https://pikisha-api.theliberec.com/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+    if (res.ok) {
+      formStatus.textContent = json.message || 'Message sent successfully!';
+      formStatus.className = 'form-status success';
+      contactForm.reset();
+    } else {
+      formStatus.textContent = json.error || 'Something went wrong. Please try again.';
+      formStatus.className = 'form-status error';
+    }
+  } catch (err) {
+    formStatus.textContent = 'Network error. Please try again.';
+    formStatus.className = 'form-status error';
+  }
+
+  submitBtn.disabled = false;
+  submitBtn.textContent = 'Send Message';
+});
+
 // Hero card tab switching
 document.querySelectorAll('.hero-card-tabs .tab').forEach(tab => {
   tab.addEventListener('click', () => {
