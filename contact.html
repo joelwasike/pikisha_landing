@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Pikisha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f0eb;
+      color: #2a2017;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+    a { text-decoration: none; color: inherit; }
+
+    /* Nav */
+    .nav {
+      background: rgba(245, 240, 235, 0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #1e1810;
+    }
+    .back-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #7a6e60;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #c8762d; }
+
+    /* Hero banner */
+    .hero-banner {
+      background: #1e1810;
+      padding: 60px 32px;
+      text-align: center;
+    }
+    .hero-banner h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .hero-banner h1 span { color: #c8762d; }
+    .hero-banner p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Main content */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 32px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Left: Contact info */
+    .info-section h2 {
+      font-size: 1.6rem;
+      color: #1e1810;
+      margin-bottom: 8px;
+    }
+    .info-section > p {
+      font-size: 0.95rem;
+      color: #7a6e60;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .info-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .info-icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      background: #c8762d;
+      color: #fff;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+    .info-card h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1e1810;
+      margin-bottom: 2px;
+    }
+    .info-card p {
+      font-size: 0.9rem;
+      color: #7a6e60;
+    }
+
+    /* Hours */
+    .hours-box {
+      margin-top: 32px;
+      background: #1e1810;
+      border-radius: 16px;
+      padding: 24px;
+      color: #fff;
+    }
+    .hours-box h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      color: #e8a85c;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .hours-row:last-child { border: none; }
+    .hours-row span:last-child { color: rgba(255,255,255,0.7); }
+
+    /* Right: Form */
+    .form-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    }
+    .form-card h3 {
+      font-size: 1.3rem;
+      color: #1e1810;
+      margin-bottom: 24px;
+    }
+    .form { display: flex; flex-direction: column; gap: 18px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #2a2017;
+      letter-spacing: 0.3px;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      padding: 13px 16px;
+      border: 1.5px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.93rem;
+      color: #2a2017;
+      background: #f5f0eb;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: vertical;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: #c8762d;
+      box-shadow: 0 0 0 3px rgba(200,118,45,0.1);
+    }
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #b0a595;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: #1e1810;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .submit-btn:hover {
+      background: #c8762d;
+      transform: translateY(-2px);
+    }
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .status-msg {
+      text-align: center;
+      font-size: 0.9rem;
+      min-height: 1.4em;
+      margin-top: 4px;
+    }
+    .status-msg.ok { color: #2e7d32; }
+    .status-msg.fail { color: #c62828; }
+
+    /* Footer */
+    .footer {
+      background: #1e1810;
+      text-align: center;
+      padding: 24px 32px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main {
+        grid-template-columns: 1fr;
+        padding: 40px 20px 60px;
+      }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-banner { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">PIKISHA</a>
+      <a href="index.html" class="back-link">&larr; Back to Home</a>
+    </div>
+  </nav>
+
+  <div class="hero-banner">
+    <h1>Get in <span>Touch</span></h1>
+    <p>Have a question or feedback? We'd love to hear from you.</p>
+  </div>
+
+  <div class="main">
+    <div class="info-section">
+      <h2>Contact Information</h2>
+      <p>Reach out to us through any of these channels or fill out the form. We typically respond within 24 hours.</p>
+
+      <div class="info-card">
+        <div class="info-icon">&#9993;</div>
+        <div>
+          <h4>Email</h4>
+          <p>hello@pikisha.com</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">&#9742;</div>
+        <div>
+          <h4>Phone</h4>
+          <p>+254 700 000 000</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">&#9873;</div>
+        <div>
+          <h4>Location</h4>
+          <p>Nairobi, Kenya</p>
+        </div>
+      </div>
+
+      <div class="hours-box">
+        <h4>Support Hours</h4>
+        <div class="hours-row"><span>Monday - Friday</span><span>8:00 AM - 8:00 PM</span></div>
+        <div class="hours-row"><span>Saturday</span><span>9:00 AM - 6:00 PM</span></div>
+        <div class="hours-row"><span>Sunday</span><span>10:00 AM - 4:00 PM</span></div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h3>Send us a message</h3>
+      <form class="form" id="contactForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="John Doe" required>
+          </div>
+          <div class="field">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" placeholder="john@example.com" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option value="general">General Inquiry</option>
+            <option value="support">Order Support</option>
+            <option value="cook">Become a Cook</option>
+            <option value="feedback">Feedback</option>
+            <option value="partnership">Partnership</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" rows="6" placeholder="Tell us what's on your mind..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+        <p class="status-msg" id="statusMsg"></p>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    &copy; 2026 Pikisha. All rights reserved.
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const statusMsg = document.getElementById('statusMsg');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusMsg.textContent = '';
+      statusMsg.className = 'status-msg';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const data = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value.trim(),
+      };
+
+      try {
+        const res = await fetch('https://pikisha-api.theliberec.com/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (res.ok) {
+          statusMsg.textContent = json.message || 'Message sent successfully!';
+          statusMsg.className = 'status-msg ok';
+          form.reset();
+        } else {
+          statusMsg.textContent = json.error || 'Something went wrong.';
+          statusMsg.className = 'status-msg fail';
+        }
+      } catch (err) {
+        statusMsg.textContent = 'Network error. Please try again.';
+        statusMsg.className = 'status-msg fail';
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    });
+  </script>
+</body>
+</html>
